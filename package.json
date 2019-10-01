@@ -11,7 +11,7 @@
     "ganache": "ganache-cli -m \"$MNEMONIC\" -g 1000000 -l 8000000 --port 8545 --networkId 4447 -q",
     "wait": "wait-on tcp:9545",
     "minimize": "scripts/minimize.sh 'build/contracts'",
-    "deploy": "run-s migrate_reset:lite minimize",
+    "deploy": "run-s migrate_reset:lite migrate:id-dao minimize",
     "deploy:full": "run-s migrate_reset:ganache minimize",
     "deploy:otp": "run-s migrate_reset:otp minimize",
     "deploy:ubi": "run-s migrate_reset:ubi minimize",
@@ -28,7 +28,8 @@
     "migrate_reset:ubi": "truffle migrate -f 3 --to 3 --network ${NETWORK-develop} --reset",
     "migrate_reset:signup": "truffle migrate -f 4 --to 4 --network ${NETWORK-develop} --reset",
     "migrate_reset:otp": "truffle migrate -f 5 --to 5 --network ${NETWORK-develop} --reset",
-    "migrate_reset:lite": "truffle migrate -f 1 --to 2 --network ${NETWORK-develop} --reset"
+    "migrate_reset:lite": "truffle migrate -f 1 --to 2 --network ${NETWORK-develop} --reset",
+    "migrate:id-dao": "npm explore @dorgtech/id-dao-contracts -- npm run deploy:development"
   },
   "files": [
     "build",
