@@ -44,6 +44,8 @@ cp .env.example .env
 
 3. Fill in the required information. see [Configuration](./docs/Configuration.md) for descriptions.
 
+4. Run an IPFS daemon, and set $ID_DAO_IPFS_PORT in .env to its port (default 5002 or 5001)
+
 ## Deploy GoodDollar
 
 The GoodContracts DAO can be deployed in two ways:
@@ -75,6 +77,13 @@ New OneTimePayments schemes are deployed by calling
 npm run deploy:otp
 ```
 This will deploy a OneTimePayment contract with the parameters given in [the migration script](./migrations/5_deploy_new_otp.js), propose it as a new scheme vote for it and start the contract if enough votes are given.
+
+## Deploy Identity DAO
+
+The Identity DAO can be deployed by calling
+```shell
+npm run migrate:id-dao
+```
 
 ### Prerequisites
 You need to have [`node`](https://nodejs.org/) installed.

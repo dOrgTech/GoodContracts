@@ -29,7 +29,7 @@
     "migrate_reset:signup": "truffle migrate -f 4 --to 4 --network ${NETWORK-develop} --reset",
     "migrate_reset:otp": "truffle migrate -f 5 --to 5 --network ${NETWORK-develop} --reset",
     "migrate_reset:lite": "truffle migrate -f 1 --to 2 --network ${NETWORK-develop} --reset",
-    "migrate:id-dao": "npm explore @dorgtech/id-dao-contracts -- npm run deploy:development"
+    "migrate:id-dao": "bash ./scripts/migrate-id-dao.sh"
   },
   "files": [
     "build",
@@ -62,6 +62,7 @@
   "homepage": "https://gooddollar.org",
   "dependencies": {
     "@daostack/arc": "0.0.1-rc.18",
+    "@dorgtech/id-dao-contracts": "^1.0.5",
     "dotenv": "^6.2.0",
     "solhint": "^2.0.0",
     "update": "^0.7.4"
@@ -71,6 +72,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
+    "@truffle/hdwallet-provider": "latest",
     "@types/chai": "^4.1.7",
     "@types/jest": "^24.0.15",
     "@types/mocha": "^5.2.6",
@@ -90,7 +92,6 @@
     "openzeppelin-solidity": "^2.1.2",
     "solidity-coverage": "github:rotcivegaf/solidity-coverage#5875f5b7bc74d447f3312c9c0e9fc7814b482477",
     "truffle": "^5.0.17",
-    "@truffle/hdwallet-provider": "latest",
     "truffle-hdwallet-provider-privkey": "latest",
     "truffle-typings": "^1.0.6",
     "ts-generator": "0.0.8",
