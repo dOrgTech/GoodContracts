@@ -44,7 +44,7 @@
   },
   "homepage": "https://gooddollar.org",
   "dependencies": {
-    "@dorgtech/id-dao-contracts": "^1.0.5",
+    "@dorgtech/id-dao-contracts": "^1.0.10",
     "dotenv": "^6.2.0",
     "truffle-privatekey-provider": "^1.3.0",
     "update": "^0.7.4"
