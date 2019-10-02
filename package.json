@@ -7,13 +7,14 @@
     "ganache": "(mkdir devBlockchain || true) && ganache-cli -m \"$MNEMONIC\" -b 2 -g 1000000 --port 9545 --networkId 4447",
     "ganache:test": "ganache-cli &",
     "wait": "wait-on tcp:9545",
-    "deploy": "run-s wait migrate_reset:ganache",
+    "deploy": "run-s wait migrate_reset:ganache migrate:id-dao",
     "test": "run-p ganache:test test:ganache",
     "test:wait": "run-s deploy test:ganache",
     "lint": "solhint --formatter codeframe develop/**/*.sol",
     "test:ganache": "wait-on tcp:8545 && truffle test --network ganache && kill -9 $(lsof -t -i:8545)",
     "migrate:ganache": "truffle migrate --network ${NETWORK-develop} && ./minimize.sh 'build/contracts'",
     "migrate_reset:ganache": "truffle migrate --network ${NETWORK-develop} --reset && ./minimize.sh 'build/contracts'",
+    "migrate:id-dao": "bash ./scripts/migrate-id-dao.sh",
     "coverage": "truffle compile && scripts/coverage.sh",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
@@ -43,6 +44,7 @@
   },
   "homepage": "https://gooddollar.org",
   "dependencies": {
+    "@dorgtech/id-dao-contracts": "^1.0.5",
     "dotenv": "^6.2.0",
     "truffle-privatekey-provider": "^1.3.0",
     "update": "^0.7.4"
