@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+NODE_JQ_SKIP_INSTALL_BINARY=true $@
